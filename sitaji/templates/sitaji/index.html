@@ -1,0 +1,18 @@
+{% extends 'sitaji/base.html' %}
+{% block title %} SitaJi Kee app -Home Page {% endblock %}
+{% block body %}
+<div class="container">
+    <h1>This is sitaji kee app</h1>
+    <ul>
+    {% for student in students %}
+        <li> 
+             <a href="{% url 'sitaji:detail' student.id %}"><img src="{{student.image.url}}" alt="student Photo" ></a> <br/>
+             Student Name  : {{student.name}} <br/>
+             <a href="{% url 'sitaji:delete-student' student.id %}">Delete</a>
+        </li>
+    {% endfor %}
+    </ul>
+    {# .... **Now the pagination section** .... #}
+    {% include 'sitaji/pagination.html' %}
+</div>
+{% endblock %}

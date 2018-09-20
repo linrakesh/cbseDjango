@@ -1,0 +1,16 @@
+{% extends 'sitaji/base.html' %}
+{% block title %} Student information- {{student.name}}  {% endblock %}
+{% block body %}
+<div class="container">
+	<h2>Single Studnet Details :{{student.id}}</h2>
+
+	<img src="{{student.image.url}}" alt="">
+	<p>
+		Name : {{student.name}} <br>
+		father name : {{student.fname}} <br/>
+		email ID  : {{student.email}}
+	
+	</p>
+	<a href="{% url 'sitaji:index' %}">Back to Home Page</a>
+</div>
+{% endblock %}

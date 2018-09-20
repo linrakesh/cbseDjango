@@ -1,0 +1,12 @@
+{% extends 'sitaji/base.html' %}
+{% block title %} Add new Student {% endblock %}
+{% block body %}
+	<div class="container">
+	<h1>Add New Student</h1>
+	<form action="" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		{% include 'sitaji/form-template.html' %}
+		<button type="submit"> Submit</button>
+	</form>
+	</div>
+{% endblock %}
