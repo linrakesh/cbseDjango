@@ -3,15 +3,16 @@
 {% block body %}
 <div class="container">
     <h1>This is sitaji kee app</h1>
-    <ul>
+    <div class="row">
     {% for student in students %}
-        <li> 
-             <a href="{% url 'sitaji:detail' student.id %}"><img src="{{student.image.url}}" alt="student Photo" ></a> <br/>
+        <div class="col s4" style="margin-bottom: 10px;"> 
+             <a href="{% url 'sitaji:detail' student.id %}"><img class="responsive-img"  src="{{student.image.url}}" alt="student Photo" ></a> <br/>
              Student Name  : {{student.name}} <br/>
-             <a href="{% url 'sitaji:delete-student' student.id %}">Delete</a>
-        </li>
+             <a class="btn" href="{% url 'sitaji:delete-student' student.id %}">Delete</a>
+             <a class="btn" href="{% url 'sitaji:update-student' student.id %}">Update</a>
+        </div>
     {% endfor %}
-    </ul>
+    </div>
     {# .... **Now the pagination section** .... #}
     {% include 'sitaji/pagination.html' %}
 </div>

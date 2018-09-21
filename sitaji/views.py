@@ -28,7 +28,7 @@ from .forms  import UserForm
 class indexView(generic.ListView):
 	template_name = 'sitaji/index.html'
 	context_object_name ="students"
-	paginate_by = 8
+	paginate_by = 6
 		
 	def get_queryset(self):
 		return student.objects.all()
@@ -42,9 +42,10 @@ class studentAdd(LoginRequiredMixin,CreateView):
 	fields = ['name','fname','email','image']
 	login_url = '/login'
 
-class studentUpdate(UpdateView):
+class studentUpdate(LoginRequiredMixin,UpdateView):
 	model = student
 	fields = ['name','fname','email','image']
+	login_url = '/login'
 
 class studentDelete(DeleteView):
 	model = student
