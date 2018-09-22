@@ -13,7 +13,7 @@
     
 <nav>
     <div class="nav-wrapper">
-        <a href="#" class="brand-logo right">Logo</a>
+        <a href="{% url 'sitaji:index' %}" class="brand-logo right">Logo</a>
         <ul id="nav-mobile" class="left hide-on-med-and-down">
             <li><a href="{% url 'sitaji:add-student' %}">Add Student</a></li>
             <li><a href="{% url 'login' %}">Login</a></li>
@@ -22,7 +22,7 @@
 </nav>
             
 	{% block body  %} 
-    {% endblock %}
+  {% endblock %}
     
 <div style="padding:20px 0px;"></div>
     <footer class="page-footer">
@@ -35,8 +35,12 @@
                 <div class="col l4 offset-l2 s12">
                   <h5 class="white-text">Links</h5>
                   <ul>
-                    <li><a class="grey-text text-lighten-3" href="#">Admin</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+
+                    <li><a class="grey-text text-lighten-3" href="{% url 'login' %}">
+                         {% if user.is_authenticated %} Login  {% else %} Logout {% endif %}
+                        </a>
+                    </li>
+                    <li><a class="grey-text text-lighten-3" href="{% url 'logout' %}">Logout</a></li>
                     <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
                     <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
                   </ul>

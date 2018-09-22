@@ -7,6 +7,7 @@ class student(models.Model):
     name = models.CharField(max_length=50)
     fname = models.CharField(max_length = 50)
     email = models.CharField(max_length= 100)
+    intro = models.TextField(default="")
     image = models.FileField()
 
     def get_absolute_url(self):
