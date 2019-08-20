@@ -1,59 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/mat.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/mat.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mat.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mat.css' %}" />
     <title>{% block title %} Base template for sitaji app{% endblock %}</title>
-</head>
-<body>
-    
-<nav>
-    <div class="nav-wrapper">
-        <a href="{% url 'sitaji:index' %}" class="brand-logo right">Logo</a>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="{% url 'sitaji:index' %}" class="brand-logo right">Home</a>
         <ul id="nav-mobile" class="left hide-on-med-and-down">
-            <li><a href="{% url 'sitaji:add-student' %}">Add Student</a></li>
-            <li><a href="{% url 'login' %}">Login</a></li>
-          </ul>
-    </div>
-</nav>
-            
-	{% block body  %} 
-  {% endblock %}
-    
-<div style="padding:20px 0px;"></div>
-    <footer class="page-footer">
-            <div class="container">
-              <div class="row">
-                <div class="col l6 s12">
-                  <h5 class="white-text">Footer Content</h5>
-                  <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-                </div>
-                <div class="col l4 offset-l2 s12">
-                  <h5 class="white-text">Links</h5>
-                  <ul>
+          <li><a href="{% url 'sitaji:add-student' %}">Add Student</a></li>
+          <li><a href="{% url 'login' %}">Login</a></li>
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
 
-                    <li><a class="grey-text text-lighten-3" href="{% url 'login' %}">
-                         {% if user.is_authenticated %} Login  {% else %} Logout {% endif %}
-                        </a>
-                    </li>
-                    <li><a class="grey-text text-lighten-3" href="{% url 'logout' %}">Logout</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="footer-copyright">
-              <div class="container">
-              © 2014 Copyright Text
-              <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-              </div>
-            </div>
-          </footer>
-              
-</body>
+    {% block body %} {% endblock %}
+
+    <div style="padding:20px 0px;"></div>
+    <footer class="page-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Footer Content</h5>
+            <p class="grey-text text-lighten-4">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel
+              dolorem asperiores provident voluptatum enim id. Velit quos,
+              minima nisi sunt voluptate inventore obcaecati cum dicta, modi,
+              repellendus natus! Consectetur, iusto!
+            </p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Links</h5>
+            <ul>
+              <li>
+                <a class="grey-text text-lighten-3" href="{% url 'login' %}">
+                  {% if not user.is_authenticated %} Login {% else %} Logout {% endif %}
+                </a>
+              </li>
+
+              <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+          © 2014 Copyright Text
+          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>

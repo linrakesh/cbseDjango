@@ -1,11 +1,11 @@
 {% extends 'sitaji/base.html' %}
-{% block title %} SitaJi Kee app -Home Page {% endblock %}
+{% block title %} My app -Home Page {% endblock %}
 {% block body %}
 <div class="container">
-    <h1>This is sitaji kee app</h1>
+    <h1>My Student app</h1>
     <div class="row">
     {% for student in students %}
-        <div class="col s4" style="margin-bottom: 10px;"> 
+        <div class="col s4" style="margin-bottom: 10px;">
              <a href="{% url 'sitaji:detail' student.id %}"><img class="responsive-img"  src="{{student.image.url}}" alt="student Photo" ></a> <br/>
              Student Name  : {{student.name}} <br/>
              <a class="btn" href="{% url 'sitaji:delete-student' student.id %}">Delete</a>
